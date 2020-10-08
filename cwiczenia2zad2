@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+
+int b;
+int main ()
+{
+    int a;
+    static int c;
+    printf ("%i %i %i", a, b, c);
+
+    return 0;
+}
