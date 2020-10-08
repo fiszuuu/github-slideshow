@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+
+int main ()
+{
+    double a= 1.234567;
+    double a=1;
+    printf ("%f\n", a);
+    {
+        int a=1;
+        printf("%d\n", a);
+        {
+            float a=7123;
+            printf ("%e\n", a);
+        }
+        printf("%d\n", a);
+    }
+    printf ("%lf\n", a);
+
+    return 0;
+}
