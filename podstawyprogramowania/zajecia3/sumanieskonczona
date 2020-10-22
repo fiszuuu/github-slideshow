@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+#define n 25
+int main ()
+{
+    int a, suma=0;
+    for (;;)
+    {
+        scanf ("%d", &a);
+        if (a==0) break;
+        suma+=a;
+        /*printf ("%d\n", suma);*/
+    }
+    printf ("%d", suma);
+    return 0;
+}
