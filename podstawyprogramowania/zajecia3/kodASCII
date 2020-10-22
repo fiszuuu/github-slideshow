@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+
+int main ()
+{
+    int i;
+    for (i=0; i<127;i++)
+    printf ("ZNAK %c ODPOWIADAJACA LICZBA %d\n", (char)i, i);
+    return 0;
+}
