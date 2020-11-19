@@ -7,3 +7,4 @@ int main ()
     printf ("|%s|\n", getenv("niewiem"));
     return 0;
 }
+    
