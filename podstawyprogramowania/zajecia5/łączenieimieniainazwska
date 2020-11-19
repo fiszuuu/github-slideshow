@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#define n 10000
+
+int main ()
+{
+    char imie[n]={"Jan "};
+    char nazwisko[]={"Kowalski"};
+    strcat (imie, nazwisko);
+
+    printf("%s", imie);
+    printf("\n%s", nazwisko);
+
+    return 0;
+}

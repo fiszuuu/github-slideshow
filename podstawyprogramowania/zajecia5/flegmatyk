@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+
+char *flegmatyk (char tab[], int mnoznik)
+{
+    int i, j, k=0;
+    char *tablica=malloc(strlen(tab)*(mnoznik+1));
+    for (i=0; tab[k]; ++i, ++k)
+    {
+        if (tab[k]=='a'||tab[k]=='e'||tab[k]=='i'||tab[k]=='o'||tab[k]=='y'||tab[k]=='u')
+        {
+            for (j=0; j<mnoznik; ++j)
+            {
+                tablica[i]=tab[k];
+                i++;
+            }
+        }
+        tablica[i]=tab[k];
+    }
+    tablica[i]=0;
+    return tablica;
+}
+
+
+int main ()
+{
+    int a;
+    char tekst[]={"przerwa zawsze spoko"};
+    printf("podaj stopien flegmatyzmu\n");
+    scanf ("%d", &a);
+    printf("%s",flegmatyk(tekst, a));
+
+    return 0;
+}

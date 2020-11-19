@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int **tablica(int i, int j)
+{
+    int **tab=malloc(sizeof(int*)*i);
+    int k, l;
+    for (k=0; k<i; ++k)
+    {
+        tab[k]=malloc(sizeof(int)*j);
+    }
+
+    return tab;
+}
+
+int **addMatrix (int **A, int **B, int a, int b)
+{
+    int **tab=tablica(a, b);
+    int i, j;
+    for (i=0; i<a; ++i)
+    {
+        for (j=0; j<b; ++j)
+        {
+            tab[i][j]=A[i][j]+B[i][j];
+        }
+    }
+    return tab;
+}
+
+int main ()
+{
+    srand(time(NULL));
+    int **A, **B;
+    int a, b, c, d, k, l, **tab;
+    /*a=b=c=d=3;*/
+    printf("podaj wymiary macierzy(najpierw A potem B):");
+    scanf ("%d %d %d %d", &a, &b, &c, &d);
+    if (a!=c || b!=d)
+    {
+        printf("macierze sa roznych rozmiarow");
+    }
+    else
+    {
+        A=tablica(a, b);
+        B=tablica(c, d);
+        for (k=0; k<a; ++k)
+        {
+            for (l=0; l<b; ++l)
+                {
+                printf("%d ", A[k][l]=rand()%10);
+                }
+
+            printf("\n");
+        }
+        printf("\n");
+        printf("\n");
+            for (k=0; k<c; ++k)
+        {
+            for (l=0; l<d; ++l)
+                {
+                printf("%d ", B[k][l]=rand()%10);
+                }
+            printf("\n");
+        }
+        printf("\n");
+        printf("\n");
+        tab=addMatrix(A,B,a,b);
+        for (k=0; k<a; ++k)
+        {
+            for (l=0; l<b; ++l)
+                {
+                printf("%3d ", tab[k][l]);
+                }
+
+            printf("\n");
+        }
+    }
+    return 0;
+}
