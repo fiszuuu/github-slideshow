@@ -1,23 +1,29 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <time.h>
+#include <stdlib.h>
 #define BOARDSIZE 3
 #define LOST -1
 #define WON  1
 #define DRAW 0
+#define MOVES 9
+char board[BOARDSIZE][BOARDSIZE]={      ' ',' ',' ',
+                                        ' ',' ',' ',
+                                        ' ',' ',' '
+    };
 void printboard (char board[BOARDSIZE][BOARDSIZE])
 {
     int i, j;
+    printf("\n  1 2 3");
     for (i=0; i<BOARDSIZE; ++i)
         {
+            printf("\n%d ", i+1);
             for (j=0; j<BOARDSIZE; ++j)
             {
-                    /*if (board[i][j]=='O') printf("O");
-                    if (board[i][j]=='X') printf("X");
-                    if (board[i][j]==' ') printf("-");*/
                     printf ("%c", board[i][j]);
                     printf(" ");
             }
-            printf("\n");
+
         }
     printf("\n");
 }
@@ -50,22 +56,56 @@ bool isfree (char board[BOARDSIZE][BOARDSIZE], int x, int y)
     return false;
 }
 
+bool yourmove (char board[BOARDSIZE][BOARDSIZE], int x, int y)
+{
+    printf("Podaj wspolrzedne (najpierw wiersz, potem kolumna)");
+    if (x>0 && x<=3 && y>0 && y<=3 && isfree(board, x, y))
+    {
+        board[x-1][y-1]='X';
+        return true;
+    }
+    else 
+    {
+        printf("blednie podane wspolrzedne");
+        return false;
+    }
+}
+int computermoves (int board[BOARDSIZE][BOARDSIZE], int x)
+{
+    if (!wincheck(board)) return DRAW;
+    
+    
+}
 int main ()
 {
-    char board[BOARDSIZE][BOARDSIZE]={  'X','X','X',
-                                        'O',' ',' ',
-                                        ' ','X',' '
-    };
-    /*printboard(board);
-    if (wincheck(board)==LOST)
-    printf ("wygraywa O\n");
-    for (int i=0; i<BOARDSIZE; ++i)
-        {
-            for (int j=0; j<BOARDSIZE; ++j)
-            {
-                if(isfree(board, i, j)) printf ("miejsce o wpolrzednych %d %d jest wolne\n", i+1, j+1);
-            }
-        }*/
+    srand(time(NULL));
+    int a=rand()%4;
+    printf("POKONAJ MNIE!\ngrasz jako X");
+    switch (a)
+    {
+    case 0:
+        board[0][0]='O';
+        break;
+    case 1:
+        board[0][2]='O';
+        break;
+    case 2:
+        board[2][0]='O';
+        break;
+    case 3:
+        board[2][2]='O';
+        break;    
+    default: printf("jakis blad");
+        break;
+    }
+    printboard(board);
+    int x, y;
+    for (int i=1; i<MOVES; ++i)
+    {
+        scanf("%d%d", &x, &y);
+        yourmove(board, x, y);
+        printboard(board);
+    }
     
     return 0;
 }
