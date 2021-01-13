@@ -90,9 +90,6 @@ bool Omoves (char board[BOARDSIZE][BOARDSIZE], int x, int y)
 
 int main ()
 {
-    /*char arr[3][3]= { "XXX", "XOO", "   "};
-    if (wincheck(arr)==LOST)
-    printf ("wygref\n"); */
     int x, y, whosmove=1, towin=5;
     printf("zaczyna O\n");
     printboard(board);

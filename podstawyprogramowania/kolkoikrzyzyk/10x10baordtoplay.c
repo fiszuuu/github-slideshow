@@ -105,7 +105,7 @@ int main ()
 {
     int x, y, whosmove=1, towin=5;
     printf("zaczyna O\n");
-    if (wincheck==WON) printf("wygrywa X");
+    if (wincheck(board, 3)) printf("wygrywa X");
     /*while (!wincheck)
     {
         if (whosmove==1)
