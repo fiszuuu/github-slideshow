@@ -186,6 +186,7 @@ void geotest(int n, double q, double first)
 }
 int main ()
 {
+    //nie dziala gdy sie probuje wywołac wszyskie funkcje (IDK czemu)
     /*fibo1();
     cout<<endl;
     fibo2(10);
