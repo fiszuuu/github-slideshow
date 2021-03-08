@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "gcc - Kompiluj i debuguj aktywny plik",
+            "name": "g++ - Kompiluj i debuguj aktywny plik",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
@@ -22,7 +22,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "C/C++: gcc build active file",
+            "preLaunchTask": "C/C++: g++ kompiluj aktywny plik",
             "miDebuggerPath": "/usr/bin/gdb"
         }
     ]
