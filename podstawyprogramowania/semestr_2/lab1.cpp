@@ -140,6 +140,9 @@ class GeoSequence
     public:
         GeoSequence (int _n_g)
         {
+            // tego nie by³o
+            n_g=_n_g;
+
             if (n_g<=0)
             {
                 tab=0;
@@ -186,14 +189,16 @@ void geotest(int n, double q, double first)
 }
 int main ()
 {
-    //nie dziala gdy sie probuje wywołac wszyskie funkcje (IDK czemu)
-    /*fibo1();
+    //nie dziala gdy sie probuje wywoÅ‚ac wszyskie funkcje (IDK czemu)
+    fibo1();
     cout<<endl;
     fibo2(10);
-    cout<<endl;
+    cout<<endl<<"test_fibo1(10)"<<endl;
     test_fibo1(10);
-    cout<<endl;*/
+
+    cout<<endl<<"test_fibo(9)"<<endl;
     test_fibo(9);
+    cout<<"geotest(7, 0.5, 16)"<<endl;
     geotest(7, 0.5, 16);
     return 0;
 }
