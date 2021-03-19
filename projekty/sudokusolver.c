@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
-#include <ncurses.h>
+#include <ncurses.h> //to work properly need to download this library
 #define SIZE 9
 #define SUMA_W_WIERSZU 45
 #define SMALL_SIZE 3
@@ -213,13 +213,14 @@ int main ()
     FILE * fp;
     int x;
     clock_t start1, stop1, start2, stop2;
-    char odp[3];
+    char odp;
     printf ("co chcesz zrobic?\n1- rozwiazanie sudoku dowolnej trudnosci\n2- porownanie dzialania czasu rozwiazywania sudoku przez algorytmy\n3- zaobserwowac dzialanie algorytumu z backtrackingiem\n     UWAGA: uzywaj dowolnego kwaisza do poakzywanai kolejnego kroku");
     printf ("\n4- rozwiazac latwe sudoku algorytmem szybszym, ale nie radzacym sobie z trudniejszymi sudoku\n\n");
     scanf ("%d", &x);
     switch (x)
     {
         case 1:
+        {
         fp=fopen ("/home/student/Pulpit/programowanie/sudoku.txt", "r");
         if (fp==NULL)
         {
@@ -238,15 +239,17 @@ int main ()
         if (solverv2(sudoku_puste1, 0, 0))
         {
         print_sudoku(sudoku_puste1);
-        printf ("chcesz sprawdzic czy podane sudoku jest na pewno dobrze rozwiazane?(tak/nie)\n");
+        printf ("chcesz sprawdzic czy podane sudoku jest na pewno dobrze rozwiazane?(t/n)\n");
         scanf ("%s", &odp);
-        if (odp[0]=='t')
+        if (odp =='t')
         if(check_if_correctv2(sudoku_puste1)) printf("jasne ze jest :D\n");
         }
         else
         printf("nie da sie rozwiazac\n");
         break;
+        }
         case 2:
+        {
         fp=fopen ("/home/student/Pulpit/programowanie/sudoku_latwe.txt", "r");
         if (fp==NULL)
         {
@@ -275,7 +278,10 @@ int main ()
         printf("czas dzialania make_it_easier: %lf\n", sec1);
         printf("czas dzialania solverv2: %lf\n", sec2);
         break;
+        }
+        
         case 3:
+        {
         fp=fopen ("/home/student/Pulpit/programowanie/sudoku_latwe.txt", "r");
         if (fp==NULL)
         {
@@ -297,7 +303,10 @@ int main ()
         else
         printf("nie da sie rozwiazac\n");
         break;
+        }
+        
         case 4:
+        {
         fp=fopen ("/home/student/Pulpit/programowanie/sudoku_latwe.txt", "r");
         if (fp==NULL)
         {
@@ -316,6 +325,8 @@ int main ()
         make_it_easier(sudoku_puste1);
         print_sudoku(sudoku_puste1);
         break;
+        }
+        
         default:
         printf ("nie ma przypisanego dzialania do liczby %d", x);
         break;
