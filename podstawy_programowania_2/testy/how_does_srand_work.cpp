@@ -3,7 +3,7 @@
 #include <ctime>
 
 using namespace std;
-    int random(int seed=-1)
+int random(int seed=-1)
     {
         int i,x;
         if (seed==-1)
