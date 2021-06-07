@@ -7,43 +7,74 @@ using namespace std;
 
 int tmp_arr[N];
 
-void  merge (int *arr, int left, int middle, int right)
-{
-    int i = left, j = middle+1, k;
+// void  merge (int *arr, int left, int middle, int right)
+// {
+//     int i = left, j = middle+1, k;
 
-    for (k=left; k <= right; ++k)
-    {
-        if (i <= middle)
-        {
-            if (j <= right)
-            {
-                if (arr[i]>=arr[j])
-                {
-                    tmp_arr[k] = arr[j];
-                    j++;
-                }
-                else
-                {
+//     for (k=left; k <= right; ++k)
+//     {
+//         if (i <= middle)
+//         {
+//             if (j <= right)
+//             {
+//                 if (arr[i]>=arr[j])
+//                 {
+//                     tmp_arr[k] = arr[j];
+//                     j++;
+//                 }
+//                 else
+//                 {
+//                     tmp_arr[k] = arr[i];
+//                     i++;
+//                 }
+//             }
+//             else
+//             {
+//                 tmp_arr[k] = arr[i];
+//                 i++;
+//             }
+//         }
+//         else
+//         {
+//             tmp_arr[k] = arr[j];
+//             j++;
+//         }
+//     }
+//     for (k=0; k <= right; ++k)
+//     {
+//         arr[k] = tmp_arr[k];
+//     }  
+// }
+
+void merge (int arr[], int left, int middle, int right){
+    int i = left; int j = middle +1;
+    for (int k = left; k < right +1; ++k){ // czy na pewno +1
+        if (i <= middle){
+            if (j <= right){
+                if (arr[j] > arr[i]){
                     tmp_arr[k] = arr[i];
                     i++;
                 }
-            }
-            else
-            {
+                else {
+                    tmp_arr[k] = arr[j];
+                    j++;
+                }
+            }   
+            else {
                 tmp_arr[k] = arr[i];
                 i++;
             }
         }
-        else
-        {
+        else {
             tmp_arr[k] = arr[j];
             j++;
         }
     }
-    for (k=0; k <= right; ++k)
-    {
+    
+    for (int k = left; k < right +1; ++k){
         arr[k] = tmp_arr[k];
-    }  
+    }
+
 }
 void merge_sort (int arr[N], int left, int right)
 {

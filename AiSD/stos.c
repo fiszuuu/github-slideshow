@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-
+#include <stdio.h>
+#include <bits/stdc++.h>
 
 
 double stos[100]; 
@@ -25,7 +26,7 @@ double pobierz(void){
     if (szczyt <= 0)
     {
         printf("ERROR");
-        return;
+        return -INT_MAX;
     }
     return stos[--szczyt]; 
 } 

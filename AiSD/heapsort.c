@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 struct heap_el {
     double value;
     struct heap_el * ojciec, * lewy, * prawy;
@@ -12,11 +13,8 @@ void wstaw (struct heap_el **root, double value){
     nowy -> value = value;
     nowy -> lewy = 0;
     nowy -> prawy = 0;
-    if (!*root){
-        *root = nowy;
-    }
+    if (ptr == 0) *root = nowy;
     while (ptr){
-        printf("yoo");
         prev = ptr;
         if (ptr->value > value) ptr= ptr -> lewy;
         else ptr = ptr->prawy;
@@ -26,12 +24,12 @@ void wstaw (struct heap_el **root, double value){
             if (ptr->value > value) prev->lewy = nowy;
             else prev -> prawy = nowy;
         }
-    }
+}
 }
 
 void wypisz (struct heap_el *root){
     if (root == 0){
-        printf("u wydpuca");
+        printf("LIPAA");
         return;
     }
     printf ("%lf", root -> value);
